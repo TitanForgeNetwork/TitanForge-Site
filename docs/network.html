@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0b0b">
+  <meta name="description" content="Network facts for TitanForge: block time, the TFN coin and its units, issuance, fees, what is public, and the networks. In development; no TFN coin exists yet.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="./docs.css">
+  <title>Network facts: TitanForge documentation</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="icon-library" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="forge-mark" viewBox="0 0 40 40"><path d="M7 5h32l-5 8H23L9 36H0l14-23H2zm16 14h12l-5 8H18z"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2.8c-5.1 0-9.2 4.1-9.2 9.2 0 4.1 2.6 7.5 6.3 8.7.5.1.6-.2.6-.5v-1.7c-2.6.6-3.1-1.1-3.1-1.1-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.8.8.1-.7.4-1.1.7-1.4-2-.2-4.2-1-4.2-4.6 0-1 .4-1.9 1-2.5-.1-.2-.4-1.2.1-2.5 0 0 .8-.2 2.5 1 .8-.2 1.6-.3 2.4-.3s1.7.1 2.5.3c1.7-1.2 2.5-1 2.5-1 .5 1.3.2 2.3.1 2.5.6.6 1 1.5 1 2.5 0 3.6-2.2 4.4-4.3 4.6.4.4.7.9.7 1.8v2.6c0 .3.2.6.7.5 3.6-1.2 6.2-4.6 6.2-8.7 0-5.1-4.1-9.2-9.2-9.2Z"/></symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M4.4 8.8c1.9-1.8 3.8-2.7 5.7-2.7h3.8c1.9 0 3.8.9 5.7 2.7 1.1 2.3 1.8 4.7 1.9 7.2-1.4 1.5-3 2.4-4.8 2.9l-1.1-2.2c-2.1.8-4.3.8-6.4 0l-1.1 2.2c-1.8-.5-3.4-1.4-4.8-2.9.1-2.5.8-4.9 1.1-7.4Z"/><path d="M9.1 13.4h.1m5.7 0h.1"/></symbol>
+    <symbol id="icon-docs" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h5M10 12h5m-5 4h5"/></symbol>
+  </svg>
+
+  <div class="site-shell">
+    <header class="site-header wrap">
+      <a class="brand" href="../index.html" aria-label="TitanForge home"><svg class="brand-mark" aria-hidden="true"><use href="#forge-mark"/></svg><span>TitanForge<span class="brand-period">.</span></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Docs</a></nav>
+      <a class="header-link" href="../index.html#status"><span class="status-dot"></span> In development</a>
+      <details class="mobile-menu"><summary aria-label="Toggle navigation"><span class="menu-lines"></span></summary><nav aria-label="Mobile navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Documentation</a><a href="../index.html#status">Development status</a></nav></details>
+    </header>
+
+    <div class="doc-layout wrap">
+      <nav class="doc-nav" aria-label="Documentation">
+        <p class="doc-nav-title">DOCUMENTATION</p>
+        <ul>
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./network.html" aria-current="page">Network facts</a>
+            <ul>
+              <li><a href="#network">The network</a></li>
+              <li><a href="#coin">The coin</a></li>
+              <li><a href="#issuance">Issuance</a></li>
+              <li><a href="#fees">Fees</a></li>
+              <li><a href="#privacy">Hidden and public</a></li>
+              <li><a href="#networks">The networks</a></li>
+              <li><a href="#open">What is still open</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="doc-nav-title">PLANNED</p>
+        <ul>
+          <li><span class="doc-nav-off">Running a node</span></li>
+          <li><span class="doc-nav-off">Mining</span></li>
+          <li><span class="doc-nav-off">Wallets</span></li>
+          <li><span class="doc-nav-off">How privacy works</span></li>
+          <li><span class="doc-nav-off">Questions and answers</span></li>
+        </ul>
+      </nav>
+
+      <nav class="doc-menu" aria-label="Documentation menu">
+        <details>
+          <summary><span><span class="doc-menu-kicker">DOCUMENTATION</span>Contents</span><span class="disclosure-mark" aria-hidden="true"></span></summary>
+          <ul>
+            <li><a href="./index.html">Overview</a></li>
+            <li><a href="./network.html" aria-current="page">Network facts</a>
+              <ul>
+                <li><a href="#network">The network</a></li>
+                <li><a href="#coin">The coin</a></li>
+                <li><a href="#issuance">Issuance</a></li>
+                <li><a href="#fees">Fees</a></li>
+                <li><a href="#privacy">Hidden and public</a></li>
+                <li><a href="#networks">The networks</a></li>
+                <li><a href="#open">What is still open</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="doc-nav-title">PLANNED</p>
+          <ul>
+            <li><span class="doc-nav-off">Running a node</span></li>
+            <li><span class="doc-nav-off">Mining</span></li>
+            <li><span class="doc-nav-off">Wallets</span></li>
+            <li><span class="doc-nav-off">How privacy works</span></li>
+            <li><span class="doc-nav-off">Questions and answers</span></li>
+          </ul>
+        </details>
+      </nav>
+
+      <main id="main" class="doc">
+        <header class="doc-head">
+          <p class="eyebrow">DOCUMENTATION</p>
+          <h1>Network facts</h1>
+          <p class="doc-lede">The figures behind TitanForge in one place: the network, the coin, how coins are issued, what a payment hides, and what is not settled yet.</p>
+        </header>
+
+        <div class="doc-intro">
+          <p>TitanForge is in development. The software is not released and <a href="../index.html#status">no TFN coin exists</a>, so there is nothing to buy or claim. This page describes the design as it is specified, not a live network.</p>
+          <p>Each term is explained where it first appears. More terms are in the <a href="../index.html#glossary">glossary on the home page</a>.</p>
+          <dl class="doc-terms">
+            <div><dt>No tag</dt><dd>The figure is decided in the specification. It changes only through a reviewed change to the specification, which is itself still in review.</dd></div>
+            <div><dt><span class="status-tag status-tag--working">working value</span></dt><dd>The current setting. A review or a measurement can still change it.</dd></div>
+          </dl>
+        </div>
+
+        <section id="network" class="doc-section" aria-labelledby="network-title">
+          <p class="doc-index" aria-hidden="true">01</p>
+          <h2 id="network-title">The network</h2>
+          <p>TitanForge is a proof-of-work network: miners secure it with computing work. Payments are recorded in blocks. A hash function turns data into a number that cannot be predicted, and a miner has to try many times until the number for a new block is low enough. TitanForge’s hash function is XelisHash-TF, which runs on processors (CPUs) and graphics cards (GPUs).</p>
+          <p>The network aims for one block every second. Blocks found at the same moment are all kept. Each block can point back to as many as ten earlier blocks, which makes the ledger, the record of all blocks, a blockDAG and not a single chain. A rule called GHOSTDAG puts every block into one agreed order.</p>
+          <p>A block is final after about 12 hours: from then on the nodes, the computers that run the network, no longer undo it. One-second blocks do not mean one-second finality.</p>
+          <p>Difficulty is the amount of work a block needs. It is set again for every block, from roughly the last 44 minutes of blocks. It can rise only gradually, which stops an attacker from packing a chain’s weight into a few unusually heavy blocks. It can fall without a limit, so the network recovers when miners leave.</p>
+          <table class="doc-table">
+            <caption>The network in figures</caption>
+            <thead><tr><th scope="col">Fact</th><th scope="col">Value</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Proof of work</th><td>XelisHash-TF v1</td></tr>
+              <tr><th scope="row">Target block time</th><td>1 second</td></tr>
+              <tr><th scope="row">Earlier blocks a block can point to</th><td>up to 10</td></tr>
+              <tr><th scope="row">Finality</th><td>about 12 hours (43,200 blocks)</td></tr>
+              <tr><th scope="row">Difficulty is set</th><td>for every block</td></tr>
+              <tr><th scope="row">Blocks the difficulty is measured from</th><td>about the last 44 minutes</td></tr>
+              <tr><th scope="row">Memory needed for one hash</th><td>543,744 bytes</td></tr>
+              <tr><th scope="row">Block size limit</th><td><span class="doc-valued"><span>250 KB</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+              <tr><th scope="row">Capacity</th><td><span class="doc-valued"><span>about 27 payments per second</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+            </tbody>
+          </table>
+
+          <h3>For miners</h3>
+          <ul>
+            <li>XelisHash-TF is a variant of XelisHash v3 with its own keys, so mining software has to be built for it. Free, open-source CPU and GPU miners are planned before launch. None is released yet.</li>
+            <li>One hash needs about half a megabyte of memory.</li>
+            <li>The network itself creates each reward, as a note in the block that follows. A note is a record of value that only its owner can spend. A block’s miner receives the reward and a share of the fees; a part of the newly issued coins goes to the <a href="#development-fund">development fund</a>. When a block arrives late and is poorly connected, its reward goes to the miner whose block merges it.</li>
+            <li>A reward has no waiting period of its own. Like any received funds it can be spent after about 10 to 20 minutes. <span class="status-tag status-tag--working">working value</span></li>
+            <li>Mining pools (groups of miners who share their rewards) and their miners talk over TF-Stratum, a dialect of the Stratum mining protocol. The current version is a draft for the test network.</li>
+          </ul>
+          <div class="doc-note" role="note">
+            <p class="doc-note-label">Public, not private</p>
+            <p>The address a mining reward is paid to and the amount are visible to everyone. Spending the reward later is private. Miners should use a separate reward address and change it regularly.</p>
+          </div>
+        </section>
+
+        <section id="coin" class="doc-section" aria-labelledby="coin-title">
+          <p class="doc-index" aria-hidden="true">02</p>
+          <h2 id="coin-title">The coin</h2>
+          <p>The coin is called TitanForge and its ticker is TFN. No TFN exists yet.</p>
+          <p>The smallest unit of the coin is the rivet. One TFN is 100,000,000 rivets, so an amount can have up to eight decimal places.</p>
+          <table class="doc-table">
+            <caption>Units of the coin</caption>
+            <thead><tr><th scope="col">Fact</th><th scope="col">Value</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Name</th><td>TitanForge</td></tr>
+              <tr><th scope="row">Ticker</th><td>TFN</td></tr>
+              <tr><th scope="row">Smallest unit</th><td>rivet</td></tr>
+              <tr><th scope="row">1 TFN</th><td>100,000,000 rivets</td></tr>
+              <tr><th scope="row">1 rivet</th><td>0.00000001 TFN</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="issuance" class="doc-section" aria-labelledby="issuance-title">
+          <p class="doc-index" aria-hidden="true">03</p>
+          <h2 id="issuance-title">Issuance</h2>
+          <p>Every TFN comes from block rewards, the new coins issued with each block. There is no premine: no coins are created before the public launch. There is also no presale, no initial coin offering (ICO) and no investor allocation.</p>
+          <p>The first block of a network is its genesis block. It pays nothing on any TitanForge network. On mainnet, the <a href="#networks">real network</a>, the genesis block must also refer to a public event that is no more than 24 hours old at launch. That shows that nothing was mined in advance.</p>
+
+          <h3>The schedule</h3>
+          <p>New coins are issued at a rate per second.</p>
+          <ul>
+            <li>The rate starts at 1 TFN per second.</li>
+            <li>It halves every two years. The halving is spread over 24 monthly steps, so each month’s rate is just under 3% lower than the month before and there is never a sudden cut.</li>
+            <li>After 122 months, a little over ten years, the rate reaches 0.03 TFN per second and stays there. This is the permanent tail. It keeps paying miners and has no end date.</li>
+          </ul>
+          <table class="doc-table">
+            <caption>Emission rate along the schedule</caption>
+            <thead><tr><th scope="col">Point in time</th><th scope="col">New TFN per second</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Start</th><td>1</td></tr>
+              <tr><th scope="row">After 1 year</th><td>0.70710678</td></tr>
+              <tr><th scope="row">After 2 years</th><td>0.5</td></tr>
+              <tr><th scope="row">After 4 years</th><td>0.25</td></tr>
+              <tr><th scope="row">After 6 years</th><td>0.125</td></tr>
+              <tr><th scope="row">After 8 years</th><td>0.0625</td></tr>
+              <tr><th scope="row">After 10 years</th><td>0.03125</td></tr>
+              <tr><th scope="row">After about 10.2 years (the tail)</th><td>0.03</td></tr>
+            </tbody>
+          </table>
+          <table class="doc-table">
+            <caption>Approximate supply under the fixed schedule</caption>
+            <thead><tr><th scope="col">After</th><th scope="col">Total supply</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1 year</th><td>27.1 million TFN</td></tr>
+              <tr><th scope="row">2 years</th><td>46.2 million TFN</td></tr>
+              <tr><th scope="row">4 years</th><td>69.3 million TFN</td></tr>
+              <tr><th scope="row">About 10.2 years (tail begins)</th><td>89.65 million TFN</td></tr>
+              <tr><th scope="row">Each year after</th><td>+0.95 million TFN</td></tr>
+            </tbody>
+          </table>
+          <p>In its first year the tail adds about 1% to the supply. The share falls every year after that. There is no hard supply cap. The software does set a technical bound of about 11.5 billion TFN on any amount or total; at the tail rate the supply would reach it only after more than 12,000 years.</p>
+          <p>Two things to know about these figures. A month in the schedule is a fixed 2,629,800 seconds, one twelfth of 365.25 days. And the schedule counts blocks, not calendar days: the totals assume one block per second, and if blocks arrive slightly faster or slower, issuance by the calendar shifts in the same proportion.</p>
+
+          <h3 id="development-fund">Development funding</h3>
+          <p>Development is paid for out of block rewards, not out of a premine. A part of the newly issued coins goes to a development fund. The fund takes nothing from transaction fees. The supply figures above include its part.</p>
+          <p>The terms of the fund will be published before mainnet.</p>
+          <p>The fund is public by design. Its address has a published viewing key: a key that lets anyone read an address’s payments without being able to spend. With it anyone can follow what the fund receives and what it spends.</p>
+          <div class="doc-note" role="note">
+            <p class="doc-note-label">Public, not private</p>
+            <p>A payment made by the development fund can be read by anyone: the receiving address, the amount and the memo (a short message) sent with it. Someone who is paid by the fund should use a fresh address for it.</p>
+          </div>
+        </section>
+
+        <section id="fees" class="doc-section" aria-labelledby="fees-title">
+          <p class="doc-index" aria-hidden="true">04</p>
+          <h2 id="fees-title">Fees</h2>
+          <p>Every transaction pays a fee that the network sets. The sender cannot add a tip or outbid others. Every transaction pays the same public price as its neighbours, so the fee reveals almost nothing about who is paying.</p>
+          <p>A private transaction is made of actions. One action can spend one note and create one. Every transaction is padded to exactly 2, 4 or 8 actions, and the fee is charged per action.</p>
+          <p>At the current setting half of each fee goes to the miner and the other half is burned. Burned coins are destroyed: they leave the supply for good, and the amount burned is public.</p>
+          <table class="doc-table">
+            <caption>Fees</caption>
+            <thead><tr><th scope="col">Fact</th><th scope="col">Value</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Starting fee per action</th><td><span class="doc-valued"><span>0.0001 TFN (10,000 rivets)</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+              <tr><th scope="row">Fee of the smallest transaction (2 actions)</th><td><span class="doc-valued"><span>0.0002 TFN</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+              <tr><th scope="row">Part of the fee that is burned</th><td><span class="doc-valued"><span>half</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+              <tr><th scope="row">Part of the fee paid to the miner</th><td><span class="doc-valued"><span>half</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+              <tr><th scope="row">Largest change of the fee</th><td><span class="doc-valued"><span>one step of about 19% per hour</span><span class="status-tag status-tag--working">working value</span></span></td></tr>
+            </tbody>
+          </table>
+          <p>The fee follows demand. Once an hour it can move one step, about 19%, up or down. It does not go below the starting fee. A fee paid at the previous hour’s level stays valid, so a transaction signed just before a change still goes through.</p>
+          <div class="doc-note doc-note--working" role="note">
+            <p class="doc-note-label">Working value</p>
+            <p>Fees are not final. The starting fee, the floor, the burned part, the hourly step and the rule that the previous hour’s fee stays valid are the current settings of the specification.</p>
+          </div>
+        </section>
+
+        <section id="privacy" class="doc-section" aria-labelledby="privacy-title">
+          <p class="doc-index" aria-hidden="true">05</p>
+          <h2 id="privacy-title">What a payment hides, and what is public</h2>
+          <p>Privacy in TitanForge means payments between users. Every such payment is shielded: the sender, the receiver and the amount are hidden. There is no transparent mode.</p>
+          <p>Some facts are public on purpose, so that anyone can check how many coins exist. One of them is the total held in each pool. A pool is the shared set of shielded notes of one coin; the balances inside it stay hidden.</p>
+          <table class="doc-table doc-table--prose">
+            <caption>Hidden and public</caption>
+            <thead><tr><th scope="col">What</th><th scope="col">Who can see it</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">A payment between users</th><td><strong>Hidden:</strong> the sender, the receiver and the amount.</td></tr>
+              <tr><th scope="row">The fee and size of a transaction</th><td><strong>Public:</strong> the fee, and whether the transaction has 2, 4 or 8 actions.</td></tr>
+              <tr><th scope="row">A mining reward</th><td><strong>Public:</strong> the address it is paid to and the amount. <strong>Hidden:</strong> what happens to it afterwards.</td></tr>
+              <tr><th scope="row">The development fund</th><td><strong>Public:</strong> what it receives and what it spends.</td></tr>
+              <tr><th scope="row">The supply</th><td><strong>Public:</strong> the coins issued and burned and the balance of each pool, in every block.</td></tr>
+              <tr><th scope="row">Stablecoin conversions (later)</th><td><strong>Public:</strong> the amounts converted. <strong>Hidden:</strong> who converts.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Limits to know</h3>
+          <ul>
+            <li><strong>Supply checks have a limit.</strong> Every block records the coins issued and burned and each pool’s balance, so anyone can recheck the supply from the first block. These totals cannot reveal a counterfeit hidden inside a pool.</li>
+            <li><strong>Anonymity is within the current pool generation.</strong> A pool that reaches its size limit is closed and replaced. Payments then hide among the notes of the new pool.</li>
+            <li><strong>The network sees less, not nothing.</strong> Node traffic is planned to travel over encrypted TLS 1.3 connections, and a new transaction will be passed along a short random path before it is broadcast, a method called Dandelion++. With both in place, ordinary peers (the other nodes that yours connects to) cannot tie a payment to an IP address, the address of your internet connection. Your internet provider can still see that you run a node and may infer when you send.</li>
+            <li><strong>TitanForge is not quantum-safe.</strong> A large quantum computer could break the cryptography that private payments use today and expose recorded payments. Notes that standard wallets create or accept are designed to be quantum-recoverable under the ZIP 2005 proposal: their owners should be able to prove ownership by quantum-safe means and move their funds. The recovery protocol is still being specified.</li>
+          </ul>
+          <div class="doc-note" role="note">
+            <p class="doc-note-label">Public, not private</p>
+            <p>A dollar-tracking stablecoin, Tungsten (TGN), is planned for later, with Girder (GIRD) as its reserve share. It is off at mainnet launch and can be switched on only after published criteria are met. Its conversion amounts will be public. Who converts stays private.</p>
+          </div>
+        </section>
+
+        <section id="networks" class="doc-section" aria-labelledby="networks-title">
+          <p class="doc-index" aria-hidden="true">06</p>
+          <h2 id="networks-title">The networks</h2>
+          <p>TitanForge defines separate networks. Each has its own genesis block and its own address prefix, so an address of one network is rejected on another.</p>
+          <table class="doc-table doc-table--three">
+            <caption>Networks and their addresses</caption>
+            <thead><tr><th scope="col">Network</th><th scope="col">Address prefix</th><th scope="col">An address</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Mainnet</th><td><code>tf</code></td><td>begins <code>tf1</code>, 105 characters</td></tr>
+              <tr><th scope="row">Testnet</th><td><code>tftest</code></td><td>begins <code>tftest1</code>, 109 characters</td></tr>
+              <tr><th scope="row">Devnet</th><td><code>tfdev</code></td><td>begins <code>tfdev1</code>, 108 characters</td></tr>
+            </tbody>
+          </table>
+          <dl class="doc-terms">
+            <div><dt>Mainnet</dt><dd>The real network, named <code>titanforge-mainnet</code>. It has not launched. Its genesis block is not set, and until it is the node software refuses to start on mainnet. Mainnet follows independent security audits.</dd></div>
+            <div><dt>Testnet</dt><dd>The first public test network, named <code>titanforge-testnet-1</code>. It is not open yet. A test network can be reset: it then starts again from a new genesis block under the same name, and no balance or history carries over.</dd></div>
+            <div><dt>Devnet</dt><dd>A network for developers, named <code>titanforge-devnet</code>, with real proof of work at low difficulty.</dd></div>
+          </dl>
+          <p>A fourth network, simnet (prefix <code>tfsim</code>), exists for simulations and automated tests. It skips the proof-of-work check.</p>
+          <p>An address is one long string of lower-case letters and digits. A wallet can hand out as many addresses as you like, and an outsider cannot link them to each other. No wallet is available to download yet.</p>
+        </section>
+
+        <section id="open" class="doc-section" aria-labelledby="open-title">
+          <p class="doc-index" aria-hidden="true">07</p>
+          <h2 id="open-title">What is still open</h2>
+          <p>The specification is written and still in review. The points below are not settled.</p>
+          <table class="doc-table doc-table--prose">
+            <caption>Not settled yet</caption>
+            <thead><tr><th scope="col">Point</th><th scope="col">Where it stands</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">The mainnet genesis block</th><td>Not set: its time, its starting difficulty and the public event it will refer to.</td></tr>
+              <tr><th scope="row">Starting difficulty of the testnet</th><td>A working value.</td></tr>
+              <tr><th scope="row">Block size and capacity</th><td>Working values. A measurement will set them.</td></tr>
+              <tr><th scope="row">Fees</th><td>Working values: the starting fee, the floor, the burned part, the hourly step and the rule that the previous hour’s fee stays valid.</td></tr>
+              <tr><th scope="row">Wait before received funds can be spent</th><td>A working value.</td></tr>
+              <tr><th scope="row">How fast difficulty may rise</th><td>A working value.</td></tr>
+              <tr><th scope="row">Mining interface</th><td>The position of two fields in the proof-of-work input still needs confirming with authors of mining software. The protocol between mining pools and miners is a draft for the test network.</td></tr>
+              <tr><th scope="row">Development fund</th><td>Its terms will be published before mainnet.</td></tr>
+              <tr><th scope="row">Quantum recovery</th><td>The recovery protocol is still being specified.</td></tr>
+              <tr><th scope="row">Security audits</th><td>Mainnet requires independent security audits.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <nav class="doc-pager" aria-label="Previous and next pages">
+          <a class="doc-pager-item" href="./index.html"><span class="doc-pager-label">PREVIOUS</span><span class="doc-pager-title">Documentation</span></a>
+          <div class="doc-pager-item doc-pager-item--next"><span class="doc-pager-label">NEXT</span><span class="doc-pager-title doc-sections-off">Running a node</span><span class="status-tag status-tag--later">planned</span></div>
+        </nav>
+      </main>
+    </div>
+
+    <footer class="site-footer wrap"><div class="footer-top"><a class="brand" href="../index.html" aria-label="TitanForge home"><svg class="brand-mark" aria-hidden="true"><use href="#forge-mark"/></svg><span>TitanForge<span class="brand-period">.</span></span></a><div class="footer-actions"><div class="social-links" role="group" aria-label="Project links"><a class="social-link" href="https://github.com/TitanForgeNetwork" title="GitHub" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"/></svg><span class="visually-hidden">GitHub</span></a><span class="social-link" title="Discord coming soon"><svg class="social-icon" aria-hidden="true"><use href="#icon-discord"/></svg><span class="visually-hidden">Discord link coming soon</span></span><a class="social-link" href="./index.html" title="Documentation"><svg class="social-icon" aria-hidden="true"><use href="#icon-docs"/></svg><span class="visually-hidden">Documentation</span></a></div><a class="back-to-top" href="#">Back to top <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></div><div class="footer-bottom"><span>© 2026 TitanForge</span><p><svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg> No trackers. No cookies. No third-party requests.</p></div></footer>
+  </div>
+</body>
+</html>
