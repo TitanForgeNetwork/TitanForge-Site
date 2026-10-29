@@ -82,14 +82,14 @@ h1 > span:nth-child(3) { animation-delay: .24s; }
 .button .icon { transition: transform var(--interaction) var(--ease); }
 .button:is(:hover, :focus-visible) .icon { transform: translate(2px, -2px); }
 .button:active { transform: translateY(0); }
-.hero-copy .button { margin-top: 26px; animation: content-arrive 1.3s .35s both; }
+.hero-copy .button { margin-top: 26px; animation: content-arrive 1.3s .35s backwards; }
 .hero-note { margin-top: 20px; color: #b4b1a7; font-size: 16px; line-height: 1.6; }
 .hero-art { position: absolute; inset: -10px -13% 0 39%; z-index: 0; pointer-events: none; }
 .hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #0a0b0b 0%, #0a0b0b65 17%, transparent 43%), linear-gradient(0deg, #0a0b0b 0%, transparent 24%); }
 .titan-core { position: absolute; width: 100%; max-width: none; height: 100%; animation: forge-arrive .95s cubic-bezier(.16,.7,.2,1) both; }
 .hero-f-piece { transform-origin: 660px 550px; animation: forge-seat 1.85s var(--ease) both, forge-assemble 9s ease-in-out 1.85s infinite; }
 .hero-seat-light { opacity: 0; stroke: #f4e7c8; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 28 100; animation: seat-light 1.85s linear both, joint-light 9s linear 1.85s infinite; }
-.forge-grid { position: absolute; inset: 15% 5% 12% 17%; background: linear-gradient(#b9a38208 1px, transparent 1px), linear-gradient(90deg, #b9a38208 1px, transparent 1px); background-size: 88px 88px; transform: perspective(800px) rotateY(-23deg) rotateZ(-16deg); mask-image: linear-gradient(transparent, #0007 35%, #000 75%, transparent); }
+.forge-grid { position: absolute; inset: 15% 5% 12% 17%; background: linear-gradient(#b9a38208 1px, transparent 1px), linear-gradient(90deg, #b9a38208 1px, transparent 1px); background-size: 88px 88px; transform: perspective(800px) rotateY(-23deg) rotateZ(-16deg); -webkit-mask-image: linear-gradient(transparent, #0007 35%, #000 75%, transparent); mask-image: linear-gradient(transparent, #0007 35%, #000 75%, transparent); }
 .forge-sweep { position: absolute; inset: 10% 15%; background: linear-gradient(112deg, transparent 42%, #f5dfb711 49.5%, #f5dfb722 50%, transparent 57%); transform: translateX(-90%); opacity: 0; animation: light-pass 3.8s .15s both; }
 
 .section { padding-block: 96px; }
@@ -114,7 +114,7 @@ h1 > span:nth-child(3) { animation-delay: .24s; }
 .scene-floor { stroke: #696458; stroke-width: .7; opacity: .2; }
 .scene-wires { stroke: #777465; stroke-width: 1.1; }
 .scene-public-wire { stroke: #83918f; stroke-dasharray: 4 7; }
-.scene-stream { stroke: #e5c894; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 14 86; opacity: 0; animation: stream-in 12s linear infinite; }
+.scene-stream { stroke: #e5c894; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 14 100; opacity: 0; animation: stream-in 12s linear infinite; }
 .scene-stream--relay { animation-name: stream-relay; }
 .scene-stream--outgoing { animation-name: stream-out; }
 .scene-stream--audit { stroke: #c5d0c8; stroke-width: 1.7; stroke-dasharray: 6 94; opacity: .65; animation: current-travel 11s linear infinite; }
@@ -128,7 +128,7 @@ h1 > span:nth-child(3) { animation-delay: .24s; }
 .satellite-orbit { transform-origin: 0 0; animation: satellite-orbit 48s linear infinite; }
 .relay-stones { opacity: .75; }
 .dag-scaffold { stroke: #7f7564; stroke-width: 1.1; }
-.dag-energy { stroke: #e1c497; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 16 84; opacity: 0; animation: stream-dag 12s linear infinite; }
+.dag-energy { stroke: #e1c497; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 16 100; opacity: 0; animation: stream-dag 12s linear infinite; }
 .dag-energy--two { animation-delay: .12s; }
 .dag-energy--three { animation-delay: .24s; }
 .block-float { transform-origin: 0 0; animation: block-levitation 12s ease-in-out infinite; }
@@ -240,7 +240,7 @@ h1 > span:nth-child(3) { animation-delay: .24s; }
 .horizon .eyebrow { margin-bottom: 29px; }
 .horizon h2 { font-size: clamp(64px, 7.3vw, 106px); font-weight: 650; line-height: 1.04; letter-spacing: -.055em; }
 .horizon h2 > span { color: #cfb88d; }
-.horizon-watermark { position: absolute; right: -40px; bottom: 0; z-index: -1; color: #c9b48a0a; -webkit-text-stroke: 1.2px #d9c29a66; mask-image: linear-gradient(115deg, #0003 5%, #000 42%, #0009 70%, #0003); font-size: clamp(280px, 37vw, 540px); font-weight: 700; line-height: .82; letter-spacing: -.09em; transform: skewY(-10deg); user-select: none; }
+.horizon-watermark { position: absolute; right: -40px; bottom: 0; z-index: -1; color: #c9b48a0a; -webkit-text-stroke: 1.2px #d9c29a66; -webkit-mask-image: linear-gradient(115deg, #0003 5%, #000 42%, #0009 70%, #0003); mask-image: linear-gradient(115deg, #0003 5%, #000 42%, #0009 70%, #0003); font-size: clamp(280px, 37vw, 540px); font-weight: 700; line-height: .82; letter-spacing: -.09em; transform: skewY(-10deg); user-select: none; }
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
   .horizon-watermark {
     background-image: linear-gradient(110deg, transparent 43%, #e0c8a610 47%, #fff1d336 50%, #c9b48a14 53%, transparent 57%);
@@ -281,10 +281,10 @@ a.social-link:is(:hover, :focus-visible) .social-icon { transform: translateY(-2
   42%, 100% { background-position: 0% 50%; }
 }
 @keyframes current-travel { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-@keyframes stream-in { 0% { opacity: 0; stroke-dashoffset: 100; } 2%, 14% { opacity: .8; } 18%, 100% { opacity: 0; stroke-dashoffset: 0; } }
-@keyframes stream-relay { 0%, 30% { opacity: 0; stroke-dashoffset: 100; } 32%, 50% { opacity: .8; } 54%, 100% { opacity: 0; stroke-dashoffset: 0; } }
-@keyframes stream-dag { 0%, 54% { opacity: 0; stroke-dashoffset: 100; } 56%, 69% { opacity: .8; } 72%, 100% { opacity: 0; stroke-dashoffset: 0; } }
-@keyframes stream-out { 0%, 74% { opacity: 0; stroke-dashoffset: 100; } 76%, 88% { opacity: .8; } 92%, 100% { opacity: 0; stroke-dashoffset: 0; } }
+@keyframes stream-in { 0% { opacity: 0; stroke-dashoffset: 0; } 2%, 14% { opacity: .8; } 18%, 100% { opacity: 0; stroke-dashoffset: -100; } }
+@keyframes stream-relay { 0%, 30% { opacity: 0; stroke-dashoffset: 0; } 32%, 50% { opacity: .8; } 54%, 100% { opacity: 0; stroke-dashoffset: -100; } }
+@keyframes stream-dag { 0%, 54% { opacity: 0; stroke-dashoffset: 0; } 56%, 69% { opacity: .8; } 72%, 100% { opacity: 0; stroke-dashoffset: -100; } }
+@keyframes stream-out { 0%, 74% { opacity: 0; stroke-dashoffset: 0; } 76%, 88% { opacity: .8; } 92%, 100% { opacity: 0; stroke-dashoffset: -100; } }
 @keyframes note-levitation { 0%, 20%, 100% { transform: translateY(0); } 8% { transform: translateY(-3px); } }
 @keyframes reactor-levitation { 0%, 16%, 34%, 100% { transform: translateY(0); } 24% { transform: translateY(-4px); } }
 @keyframes collar-precession { 0%, 16%, 36%, 100% { transform: rotate(-10deg); } 25% { transform: rotate(7deg); } }
@@ -292,13 +292,13 @@ a.social-link:is(:hover, :focus-visible) .social-icon { transform: translateY(-2
 @keyframes orbit-precession { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 @keyframes satellite-orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes block-levitation { 0%, 54%, 76%, 100% { transform: translateY(0); } 64% { transform: translateY(-4px); } }
-@keyframes note-received { 0%, 76%, 96%, 100% { transform: translateY(0); } 86% { transform: translateY(-3px); } }
+@keyframes note-received { 0%, 87%, 100% { transform: translateY(0); } 93% { transform: translateY(-3px); } }
 @keyframes audit-levitation { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes courier-in { 0% { transform: translate(174px, 300px); opacity: 0; } 2%, 14% { opacity: 1; } 18%, 100% { transform: translate(287px, 300px); opacity: 0; } }
-@keyframes courier-relay { 0%, 30% { transform: translate(540px, 300px); opacity: 0; } 32% { opacity: 1; } 37% { transform: translate(605px, 328px); } 43% { transform: translate(637px, 280px); } 49% { transform: translate(682px, 321px); opacity: 1; } 54%, 100% { transform: translate(752px, 300px); opacity: 0; } }
+@keyframes courier-relay { 0%, 30% { transform: translate(540px, 300px); opacity: 0; } 32% { opacity: 1; } 33.6% { transform: translate(581px, 300px); } 36.9% { transform: translate(605px, 328px); } 42.1% { transform: translate(637px, 280px); } 47.5% { transform: translate(682px, 321px); } 50% { opacity: 1; } 54%, 100% { transform: translate(752px, 300px); opacity: 0; } }
 @keyframes courier-out { 0%, 74% { transform: translate(1042px, 300px); opacity: 0; } 76%, 88% { opacity: 1; } 92%, 100% { transform: translate(1135px, 332px); opacity: 0; } }
 @keyframes portrait-in { 0% { transform: translate(154px, 161px); opacity: 0; } 2%, 14% { opacity: 1; } 18%, 100% { transform: translate(229px, 268px); opacity: 0; } }
-@keyframes portrait-relay { 0%, 30% { transform: translate(396px, 413px); opacity: 0; } 32% { opacity: 1; } 37% { transform: translate(434px, 462px); } 43% { transform: translate(480px, 500px); } 47% { transform: translate(431px, 541px); opacity: 1; } 54%, 100% { transform: translate(191px, 629px); opacity: 0; } }
+@keyframes portrait-relay { 0%, 30% { transform: translate(396px, 413px); opacity: 0; } 32% { opacity: 1; } 33.4% { transform: translate(434px, 462px); } 36.6% { transform: translate(480px, 500px); } 40.1% { transform: translate(431px, 541px); } 50% { opacity: 1; } 54%, 100% { transform: translate(191px, 629px); opacity: 0; } }
 @keyframes portrait-out { 0%, 74% { transform: translate(427px, 652px); opacity: 0; } 76%, 88% { opacity: 1; } 92%, 100% { transform: translate(481px, 785px); opacity: 0; } }
 @keyframes title-arrive { from { opacity: 0; transform: translateY(25px); filter: blur(7px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
 @keyframes content-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
