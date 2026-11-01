@@ -27,9 +27,9 @@
   <div class="site-shell">
     <header class="site-header wrap">
       <a class="brand" href="../index.html" aria-label="TitanForge home"><svg class="brand-mark" aria-hidden="true"><use href="#forge-mark"/></svg><span>TitanForge<span class="brand-period">.</span></span></a>
-      <nav class="desktop-nav" aria-label="Main navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Docs</a></nav>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Docs</a><a href="../titanforge-litepaper.pdf">Litepaper</a></nav>
       <a class="header-link" href="../index.html#status"><span class="status-dot"></span> In development</a>
-      <details class="mobile-menu"><summary aria-label="Toggle navigation"><span class="menu-lines"></span></summary><nav aria-label="Mobile navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Documentation</a><a href="../index.html#status">Development status</a></nav></details>
+      <details class="mobile-menu"><summary aria-label="Toggle navigation"><span class="menu-lines"></span></summary><nav aria-label="Mobile navigation"><a href="../index.html#principles">Principles</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#horizon">What’s next</a><a href="./index.html">Documentation</a><a href="../titanforge-litepaper.pdf">Litepaper</a><a href="../index.html#status">Development status</a></nav></details>
     </header>
 
     <div class="doc-layout wrap">
@@ -130,7 +130,7 @@
           <ul>
             <li>XelisHash-TF is a variant of XelisHash v3 with its own keys, so mining software has to be built for it. Free, open-source CPU and GPU miners are planned before launch. None is released yet.</li>
             <li>One hash needs about half a megabyte of memory.</li>
-            <li>The network itself creates each reward, as a note in the block that follows. A note is a record of value that only its owner can spend. A block’s miner receives the reward and a share of the fees; a part of the newly issued coins goes to the <a href="#development-fund">development fund</a>. When a block arrives late and is poorly connected, its reward goes to the miner whose block merges it.</li>
+            <li>The network itself creates each reward, as a note, when a later block merges the block that earned it. A note is a record of value that only its owner can spend. A block’s miner receives the reward and a share of the fees; a part of the newly issued coins goes to the <a href="#development-fund">development fund</a>. When a block arrives late and is poorly connected, its reward goes to the miner whose block merges it.</li>
             <li>A reward has no waiting period of its own. Like any received funds it can be spent after about 10 to 20 minutes. <span class="status-tag status-tag--working">working value</span></li>
             <li>Mining pools (groups of miners who share their rewards) and their miners talk over TF-Stratum, a dialect of the Stratum mining protocol. The current version is a draft for the test network.</li>
           </ul>
