@@ -464,6 +464,15 @@ a.social-link:is(:hover, :focus-visible) .social-icon { transform: translateY(-2
   .footer-actions { width: 100%; justify-content: space-between; }
   .back-to-top { font-size: 16px; gap: 9px; }
   .footer-bottom { margin-top: 24px; }
+  .more-sm { display: none; }
+  .card-index, .mechanism-steps li > span { display: none; }
+  .card-top { margin-bottom: 10px; }
+  .status-tag { padding: 1px 7px; font-size: 12px; }
+  .mechanism-steps { grid-template-columns: 1fr; gap: 22px; }
+  .mechanism-steps p { margin-top: 6px; }
+  .scene-label--proof, .scene-label--dag { display: none; }
+  .forge-explainer figcaption { font-size: 14px; line-height: 1.7; }
+  .horizon-watermark { display: none; }
 }
 
 @media (max-width: 360px) {
