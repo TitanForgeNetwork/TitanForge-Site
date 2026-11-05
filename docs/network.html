@@ -49,6 +49,7 @@
               <li><a href="#open">What is still open</a></li>
             </ul>
           </li>
+          <li><a href="./gateway.html">Gateway (planned)</a></li>
         </ul>
         <p class="doc-nav-title">PLANNED</p>
         <ul>
@@ -76,6 +77,7 @@
                 <li><a href="#open">What is still open</a></li>
               </ul>
             </li>
+            <li><a href="./gateway.html">Gateway (planned)</a></li>
           </ul>
           <p class="doc-nav-title">PLANNED</p>
           <ul>
@@ -96,7 +98,7 @@
         </header>
 
         <div class="doc-intro">
-          <p>TitanForge is in development. The software is not released and <a href="../index.html#status">no TFN coin exists</a>, so there is nothing to buy or claim. This page describes the design as it is specified, not a live network.</p>
+          <p>TitanForge is in development. A private test network runs for the team, but the software is not released and <a href="../index.html#status">no TFN coin exists</a>, so there is nothing to buy or claim. This page describes the design as it is specified.</p>
           <p>Each term is explained where it first appears. More terms are in the <a href="../index.html#glossary">glossary on the home page</a>.</p>
           <dl class="doc-terms">
             <div><dt>No tag</dt><dd>The figure is decided in the specification. It changes only through a reviewed change to the specification, which is itself still in review.</dd></div>
@@ -110,7 +112,7 @@
           <p>TitanForge is a proof-of-work network: miners secure it with computing work. Payments are recorded in blocks. A hash function turns data into a number that cannot be predicted, and a miner has to try many times until the number for a new block is low enough. TitanForge’s hash function is XelisHash-TF, which runs on processors (CPUs) and graphics cards (GPUs).</p>
           <p>The network aims for one block every second. Blocks found at the same moment are all kept. Each block can point back to as many as ten earlier blocks, which makes the ledger, the record of all blocks, a blockDAG and not a single chain. A rule called GHOSTDAG puts every block into one agreed order.</p>
           <p>A block is final after about 12 hours: from then on the nodes, the computers that run the network, no longer undo it. One-second blocks do not mean one-second finality.</p>
-          <p>Difficulty is the amount of work a block needs. It is set again for every block, from roughly the last 44 minutes of blocks. It can rise only gradually, which stops an attacker from packing a chain’s weight into a few unusually heavy blocks. It can fall without a limit, so the network recovers when miners leave.</p>
+          <p>Difficulty is the amount of work a block needs. It is set again for every block, from roughly the last 44 minutes of blocks. It can rise only gradually, which stops an attacker from packing a chain’s weight into a few unusually heavy blocks. It can fall as far as needed, though only as fast as its window allows, so the network recovers when miners leave: after a 99% drop in hashrate, in about 7.4 hours.</p>
           <table class="doc-table">
             <caption>The network in figures</caption>
             <thead><tr><th scope="col">Fact</th><th scope="col">Value</th></tr></thead>
@@ -129,7 +131,7 @@
 
           <h3>For miners</h3>
           <ul>
-            <li>XelisHash-TF is a variant of XelisHash v3 with its own keys, so mining software has to be built for it. Free, open-source CPU and GPU miners are planned before launch. None is released yet.</li>
+            <li>XelisHash-TF is a variant of XelisHash v3 with its own keys, so mining software has to be built for it. Free CPU and GPU miners with no fees are planned before launch, with a published mining specification; their source code is published with mainnet. None is released yet.</li>
             <li>One hash needs about half a megabyte of memory.</li>
             <li>The network itself creates each reward, as a note, when a later block merges the block that earned it. A note is a record of value that only its owner can spend. A block’s miner receives the reward and a share of the fees; a part of the newly issued coins goes to the <a href="#development-fund">development fund</a>. When a block arrives late and is poorly connected, its reward goes to the miner whose block merges it.</li>
             <li>A reward has no waiting period of its own. Like any received funds it can be spent after about 10 to 20 minutes. <span class="status-tag status-tag--working">working value</span></li>
@@ -203,7 +205,7 @@
           <h3 id="development-fund">Development funding</h3>
           <p>Development is paid for out of block rewards, not out of a premine. A part of the newly issued coins goes to a development fund. The fund takes nothing from transaction fees. The supply figures above include its part.</p>
           <p>For the first four years of the chain the fund receives 5% of the newly issued coins: about 3.46 million TFN in all, under 4% of the supply after ten years. After that it receives nothing.</p>
-          <p>The fund is public by design. Its address has a published viewing key: a key that lets anyone read an address’s payments without being able to spend. With it anyone can follow what the fund receives and what it spends.</p>
+          <p>The fund is public by design. Its address will have a published viewing key: a key that lets anyone read an address’s payments without being able to spend. With it anyone can follow what the fund receives and what it spends.</p>
           <div class="doc-note" role="note">
             <p class="doc-note-label">Public, not private</p>
             <p>A payment made by the development fund can be read by anyone: the receiving address, the amount and the memo (a short message) sent with it. Someone who is paid by the fund should use a fresh address for it.</p>
@@ -213,7 +215,7 @@
         <section id="fees" class="doc-section" aria-labelledby="fees-title">
           <p class="doc-index" aria-hidden="true">04</p>
           <h2 id="fees-title">Fees</h2>
-          <p>Every transaction pays a fee that the network sets. The sender cannot add a tip or outbid others. Every transaction pays the same public price as its neighbours, so the fee reveals almost nothing about who is paying.</p>
+          <p>Every transaction pays a fee that the network sets. The sender cannot add a tip or outbid others. Every transaction pays the same public price as its neighbours, so the fee shows nothing beyond the transaction’s size.</p>
           <p>A private transaction is made of actions. One action can spend one note and create one. Every transaction is padded to exactly 2, 4 or 8 actions, and the fee is charged per action.</p>
           <p>At the current setting half of each fee goes to the miner and the other half is burned. Burned coins are destroyed: they leave the supply for good, and the amount burned is public.</p>
           <table class="doc-table">
@@ -248,7 +250,7 @@
               <tr><th scope="row">A mining reward</th><td><strong>Public:</strong> the address it is paid to and the amount. <strong>Hidden:</strong> what happens to it afterwards.</td></tr>
               <tr><th scope="row">The development fund</th><td><strong>Public:</strong> what it receives and what it spends.</td></tr>
               <tr><th scope="row">The supply</th><td><strong>Public:</strong> the coins issued and burned and the balance of each pool, in every block.</td></tr>
-              <tr><th scope="row">Stablecoin conversions (later)</th><td><strong>Public:</strong> the amounts converted. <strong>Hidden:</strong> who converts.</td></tr>
+              <tr><th scope="row">Stablecoin conversions (later)</th><td><strong>Public:</strong> the amounts converted and the one-time addresses used. <strong>Hidden:</strong> who converts, as long as those addresses are not reused.</td></tr>
             </tbody>
           </table>
 
@@ -261,7 +263,7 @@
           </ul>
           <div class="doc-note" role="note">
             <p class="doc-note-label">Public, not private</p>
-            <p>A dollar-tracking stablecoin, Tungsten (TGN), is planned for later, with Girder (GIRD) as its reserve share. It is off at mainnet launch and can be switched on only after published criteria are met. Its conversion amounts will be public. Who converts stays private.</p>
+            <p>A dollar-tracking stablecoin, Tungsten (TGN), is planned for later, with Girder (GIRD) as its reserve share. It is off at mainnet launch and can be switched on only after published criteria are met. Its conversion amounts and the one-time addresses they use will be public, so conversions are less private than payments. Who converts stays hidden as long as those addresses are not reused.</p>
           </div>
         </section>
 
@@ -280,7 +282,7 @@
           </table>
           <dl class="doc-terms">
             <div><dt>Mainnet</dt><dd>The real network, named <code>titanforge-mainnet</code>. It has not launched. Its genesis block is not set, and until it is the node software refuses to start on mainnet. Mainnet follows independent security audits.</dd></div>
-            <div><dt>Testnet</dt><dd>The first public test network, named <code>titanforge-testnet-1</code>. It is not open yet. A test network can be reset: it then starts again from a new genesis block under the same name, and no balance or history carries over.</dd></div>
+            <div><dt>Testnet</dt><dd>The test network, named <code>titanforge-testnet-1</code>. It runs today as a private network for the team and opens to the public later. Its genesis block names Bitcoin block 974,560, so it was not made before that block. A test network can be reset: it then starts again from a new genesis block under the same name, and no balance or history carries over.</dd></div>
             <div><dt>Devnet</dt><dd>A network for developers, named <code>titanforge-devnet</code>, with real proof of work at low difficulty.</dd></div>
           </dl>
           <p>A fourth network, simnet (prefix <code>tfsim</code>), exists for simulations and automated tests. It skips the proof-of-work check.</p>
@@ -296,7 +298,6 @@
             <thead><tr><th scope="col">Point</th><th scope="col">Where it stands</th></tr></thead>
             <tbody>
               <tr><th scope="row">The mainnet genesis block</th><td>Not set: its time, its starting difficulty and the public event it will refer to.</td></tr>
-              <tr><th scope="row">Starting difficulty of the testnet</th><td>A working value.</td></tr>
               <tr><th scope="row">Block size and capacity</th><td>Working values. A measurement will set them.</td></tr>
               <tr><th scope="row">Fees</th><td>Working values: the starting fee, the floor, the burned part, the hourly step and the rule that the previous hour’s fee stays valid.</td></tr>
               <tr><th scope="row">Wait before received funds can be spent</th><td>A working value.</td></tr>
@@ -311,7 +312,7 @@
 
         <nav class="doc-pager" aria-label="Previous and next pages">
           <a class="doc-pager-item" href="./index.html"><span class="doc-pager-label">PREVIOUS</span><span class="doc-pager-title">Documentation</span></a>
-          <div class="doc-pager-item doc-pager-item--next"><span class="doc-pager-label">NEXT</span><span class="doc-pager-title doc-sections-off">Running a node</span><span class="status-tag status-tag--later">planned</span></div>
+          <a class="doc-pager-item doc-pager-item--next" href="./gateway.html"><span class="doc-pager-label">NEXT</span><span class="doc-pager-title">Gateway (planned)</span></a>
         </nav>
       </main>
     </div>
