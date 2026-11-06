@@ -365,7 +365,7 @@ a.social-link:is(:hover, :focus-visible) .social-icon { transform: translateY(-2
   .protocol-heading > p { margin-top: 24px; font-size: 16px; }
   .protocol-heading > p br { display: none; }
   .scene-label span { display: none; }
-  .scene-label--audit { left: 64%; }
+  .scene-label--audit { left: 65.5%; }
   .mechanism-steps { grid-template-columns: 1fr 1fr; gap: 27px; }
   .mechanism-steps h3 { font-size: 20px; }
   .details-intro { align-items: flex-start; flex-direction: column; gap: 24px; margin-bottom: 32px; }
